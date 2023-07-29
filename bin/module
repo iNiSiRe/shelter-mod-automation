@@ -1,0 +1,59 @@
+#!/usr/bin/env php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+use inisire\fibers\Network\SocketFactory;
+use inisire\Logging\Decorator\Verbose;
+use inisire\Logging\EchoLogger;
+use inisire\Logging\LogLevel;
+use inisire\mqtt\NetBus\EventBus;
+use inisire\mqtt\NetBus\QueryBus;
+use Shelter\Automation\Application\Notification\Service\TelegramMessenger;
+use Shelter\Automation\Core\Security\Guard;
+use Shelter\Automation\Application\Notification\Service\Telegram;
+use Shelter\Automation\Application\Security\TelegramMessageAlarm;
+use Shelter\Automation\Core\Security\IllegalEntryGuard;
+use function inisire\fibers\asleep;
+
+$bus = getenv('BUS');
+$path = getenv('CONFIG');
+
+if ($bus === false || $path === false) {
+    echo 'Error: Not enough params' . PHP_EOL;
+    echo 'Usage: BUS=127.0.0.1 CONFIG=config.yml bin/module' . PHP_EOL;
+    exit(-1);
+}
+
+if (!file_exists($path)) {
+    echo 'Error: Config file not exists' . PHP_EOL;
+    exit(-1);
+}
+
+$logger = new EchoLogger();
+
+if ($level = getenv('VERBOSE')) {
+    $logger = new Verbose(LogLevel::fromName($level), $logger);
+}
+
+\inisire\fibers\async(function () use ($logger, $bus, $path) {
+    $sockets = new SocketFactory();
+
+    $eventBus = new EventBus($logger, $sockets);
+    $eventBus->connect($bus);
+
+    $queryBus = new QueryBus($logger, $sockets);
+    $queryBus->connect($bus);
+
+    $registry = new \Shelter\Bus\DeviceRegistry('automation', $eventBus, $logger, new \Shelter\Bus\DeviceFactory());
+    $registry->startDeviceDiscovery();
+
+    // Wait devices discovery
+    asleep(3);
+
+    $factory = new \Shelter\Automation\Module\ScenarioFactory($registry, $queryBus, $eventBus, $logger, dirname(__DIR__) . '/scenario');
+    $configuration = \Shelter\Automation\Module\Configuration::fromYaml($path);
+    $module = new \Shelter\Automation\Module\AutomationModule($eventBus, $configuration, $factory);
+
+    $module->start();
+});

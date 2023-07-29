@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f15c8092a22900a839e7f775b243ab4a",
+    "content-hash": "eee7e3f7ea665b681f12d6ed17653842",
     "packages": [
         {
             "name": "binsoul/net-mqtt",
@@ -443,12 +443,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/iNiSiRe/fibers.git",
-                "reference": "3cf9ab3479877c92e3309eb801421ab54cc80ab9"
+                "reference": "c5fffeab02f3fe0694f3bb62089ec5d208c6af09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/iNiSiRe/fibers/zipball/3cf9ab3479877c92e3309eb801421ab54cc80ab9",
-                "reference": "3cf9ab3479877c92e3309eb801421ab54cc80ab9",
+                "url": "https://api.github.com/repos/iNiSiRe/fibers/zipball/c5fffeab02f3fe0694f3bb62089ec5d208c6af09",
+                "reference": "c5fffeab02f3fe0694f3bb62089ec5d208c6af09",
                 "shasum": ""
             },
             "require": {
@@ -479,7 +479,7 @@
                 "source": "https://github.com/iNiSiRe/fibers/tree/master",
                 "issues": "https://github.com/iNiSiRe/fibers/issues"
             },
-            "time": "2023-07-20T18:44:19+00:00"
+            "time": "2023-07-29T16:49:01+00:00"
         },
         {
             "name": "inisire/fibers-mqtt",
@@ -487,12 +487,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/iNiSiRe/fibers-mqtt.git",
-                "reference": "77b14437e1065ed96e12387c7caf012534cd471e"
+                "reference": "58ebb023c7ce5ec4865a6ce5ec18523110423c3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/iNiSiRe/fibers-mqtt/zipball/77b14437e1065ed96e12387c7caf012534cd471e",
-                "reference": "77b14437e1065ed96e12387c7caf012534cd471e",
+                "url": "https://api.github.com/repos/iNiSiRe/fibers-mqtt/zipball/58ebb023c7ce5ec4865a6ce5ec18523110423c3b",
+                "reference": "58ebb023c7ce5ec4865a6ce5ec18523110423c3b",
                 "shasum": ""
             },
             "require": {
@@ -517,7 +517,7 @@
                 "source": "https://github.com/iNiSiRe/fibers-mqtt/tree/master",
                 "issues": "https://github.com/iNiSiRe/fibers-mqtt/issues"
             },
-            "time": "2023-07-23T20:54:00+00:00"
+            "time": "2023-07-29T16:49:01+00:00"
         },
         {
             "name": "inisire/logging",
@@ -597,12 +597,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/iNiSiRe/netbus-mqtt.git",
-                "reference": "dfee06740fb11ecbc9e707e3e712afb266a2a5e8"
+                "reference": "f79a06c1794e8707674a29240d0b189d9ba2aa9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/iNiSiRe/netbus-mqtt/zipball/dfee06740fb11ecbc9e707e3e712afb266a2a5e8",
-                "reference": "dfee06740fb11ecbc9e707e3e712afb266a2a5e8",
+                "url": "https://api.github.com/repos/iNiSiRe/netbus-mqtt/zipball/f79a06c1794e8707674a29240d0b189d9ba2aa9f",
+                "reference": "f79a06c1794e8707674a29240d0b189d9ba2aa9f",
                 "shasum": ""
             },
             "require": {
@@ -622,7 +622,7 @@
                 "source": "https://github.com/iNiSiRe/netbus-mqtt/tree/master",
                 "issues": "https://github.com/iNiSiRe/netbus-mqtt/issues"
             },
-            "time": "2023-07-25T22:17:14+00:00"
+            "time": "2023-07-29T16:49:01+00:00"
         },
         {
             "name": "inisire/shelter-core",
@@ -1092,6 +1092,70 @@
                 }
             ],
             "time": "2023-05-23T14:45:45+00:00"
+        },
+        {
+            "name": "symfony/finder",
+            "version": "v6.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/finder.git",
+                "reference": "d9b01ba073c44cef617c7907ce2419f8d00d75e2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/d9b01ba073c44cef617c7907ce2419f8d00d75e2",
+                "reference": "d9b01ba073c44cef617c7907ce2419f8d00d75e2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "symfony/filesystem": "^6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Finder\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Finds files and directories via an intuitive fluent interface",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/finder/tree/v6.3.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-04-02T01:25:41+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
