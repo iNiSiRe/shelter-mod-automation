@@ -36,7 +36,7 @@ class ScenarioFactory
         }
 
         foreach (get_declared_classes() as $class) {
-            if (is_a($class, Scenario::class, true)) {
+            if (is_subclass_of($class, Scenario::class, true)) {
                 $this->logger->debug(sprintf('Scenario "%s" loaded', $class));
                 $this->scenarios[] = $class;
             }

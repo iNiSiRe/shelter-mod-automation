@@ -37,12 +37,12 @@ if ($level = getenv('VERBOSE')) {
 }
 
 \inisire\fibers\async(function () use ($logger, $bus, $path) {
-    $sockets = new SocketFactory();
-
-    $eventBus = new EventBus($logger, $sockets);
+    $eventBus = new EventBus();
+    $eventBus->setLogger($logger);
     $eventBus->connect($bus);
 
-    $queryBus = new QueryBus($logger, $sockets);
+    $queryBus = new QueryBus();
+    $queryBus->setLogger($logger);
     $queryBus->connect($bus);
 
     $registry = new \Shelter\Bus\DeviceRegistry('automation', $eventBus, $logger, new \Shelter\Bus\DeviceFactory());
